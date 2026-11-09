@@ -1,0 +1,46 @@
+services:
+  - type: web
+    name: game-marketplace-bot
+    runtime: python
+    plan: starter
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.6
+      - key: BOT_TOKEN
+        sync: false
+      - key: OWNER_ID
+        sync: false
+      - key: DATABASE_URL
+        sync: false
+      - key: SECRET_KEY
+        sync: false
+      - key: ENCRYPTION_KEY
+        sync: false
+      - key: CLICK_SERVICE_ID
+        sync: false
+      - key: CLICK_MERCHANT_ID
+        sync: false
+      - key: CLICK_SECRET_KEY
+        sync: false
+      - key: CLICK_MERCHANT_USER_ID
+        sync: false
+      - key: PUBLIC_BASE_URL
+        sync: false
+      - key: AUTO_CREATE_TABLES
+        value: "true"
+      - key: DEFAULT_COMMISSION
+        value: "10"
+      - key: DEFAULT_MIN_PRICE
+        value: "5000"
+      - key: DEFAULT_SUPPORT
+        value: "@support"
+      - key: THROTTLE_LIMIT
+        value: "8"
+      - key: THROTTLE_WINDOW
+        value: "3"
+      - key: LOG_LEVEL
+        value: "INFO"
